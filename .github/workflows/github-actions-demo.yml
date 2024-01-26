@@ -22,3 +22,9 @@ jobs:
       - run: |
           echo "🤡 This variable is defined in settings ${{ vars.NAME }}"
           echo "variable from shell environment : $env_var"
+      # configuration secret
+      - name: Retrieve secret
+        env:
+          super_secret: ${{ secrets.SUPERSECRET }}
+        run: |
+          example-command "$super_secret"
